@@ -1,0 +1,33 @@
+let nums = [3,3,3,1,2,1,1,2,3,3,4];
+let max=0;
+
+
+
+for (let i = 0; i < nums.length; i++) {
+   let left=i;
+let right=nums.length;
+  let map = new Map();
+  while(left<right){
+  
+   
+     if(map.has(nums[left])){
+       console.log(nums[left],map.get(nums[left])+1)
+    map.set(nums[left],(map.get(nums[left]))+1)
+  }
+  else if(map.size<2){
+    console.log("first time")
+    map.set(nums[left],1)
+    
+  }else
+  {break}
+    left++;
+   
+  }
+ let sum=[...map.values()].reduce((a,b)=>a+b,0)
+
+  max=Math.max(sum,max)
+ 
+ 
+}
+console.log(max)
+
