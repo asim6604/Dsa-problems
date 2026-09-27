@@ -1,0 +1,18 @@
+let s = "AAOBECODEBANC";
+let lower = s.toLowerCase();
+let minLen = Infinity;
+let map = new Map();
+
+for (let i = 0; i < lower.length; i++) {
+    if (lower[i] === 'a' || lower[i] === 'b' || lower[i] === 'c') {
+        map.set(lower[i], i);
+    }
+
+    if (map.size === 3) {
+        let left = Math.min(map.get('a'), map.get('b'), map.get('c'));
+        let window = i - left + 1;
+        minLen = Math.min(window, minLen);
+    }
+}
+
+console.log(minLen); // 4
