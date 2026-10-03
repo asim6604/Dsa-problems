@@ -1,0 +1,22 @@
+let nums=[0, 0, 1, 1, 0, 0, 1, 1]
+let map=new Map();
+let sum=0;
+let max=0;
+map.set(0, -1);
+for(i=0;i<nums.length;i++){
+  if(nums[i]===0){
+    sum+=-1
+  }
+  else{
+    sum++;
+  }
+  if(map.has(sum)){
+    max=Math.max(max,i-map.get(sum))
+  }
+  else{
+     map.set(sum,i)
+  }
+ 
+}
+console.log(map)
+console.log(max)
